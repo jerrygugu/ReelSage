@@ -1,0 +1,37 @@
+# ReelSage v2 客户端依赖（Python >= 3.10, 推荐 3.11）
+
+# ---- 系统托盘（Windows 任务栏右下角）----
+pystray>=0.19.5
+
+# ---- 核心：模型推理 ----
+torch>=2.1.0
+# torchvision：transformers>=5 的 Qwen3VLVideoProcessor 必需，否则模型加载报：
+#   "Qwen3VLVideoProcessor requires the Torchvision library but it was not found"
+torchvision>=0.16.0
+transformers>=4.57.0
+accelerate>=0.27.0
+
+# ---- 视频解码 / 图像处理 ----
+opencv-python>=4.8.0
+pillow>=9.5.0
+numpy>=1.24.0
+
+# ---- 客户端授权 / 网络通信（标准库 urllib 即可，无额外依赖）----
+# 但加密 license token 用 cryptography
+cryptography>=42.0.0
+
+# ============================================================
+# 以下依赖**不预装**，UI 内首次点击对应模型时会引导自动安装
+# 这样项目本体保持轻量；用户只装自己用得到的
+# ============================================================
+#
+# 文本 RAG（长视频角色一致性 / 跨时段语义检索）：
+#   pip install FlagEmbedding>=1.2.10 hnswlib>=0.8.0        # BGE-M3 ⭐
+#   pip install sentence-transformers>=3.0 hnswlib>=0.8.0    # 替代品
+#
+# 视觉 RAG（跨场景找同一人 / 同一地点）：
+#   pip install cn_clip>=1.5.0 hnswlib>=0.8.0                # Chinese-CLIP
+#
+# 加速推理 (NVIDIA GPU)：
+#   pip install flash-attn --no-build-isolation
+#

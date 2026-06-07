@@ -1,0 +1,4 @@
+import site
+.
+.venv\Lib
+.venv\Lib\site-packages

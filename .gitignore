@@ -1,0 +1,74 @@
+# ============================================================
+#  ReelSage .gitignore  —  发布模式：分发 exe，隐藏源码
+#  仓库内容 = ReelSage.exe + 运行库 + 环境/模型脚本
+#  用户：装环境(安装依赖.bat) + 下模型(download_models.bat) → 双击 ReelSage.exe
+# ============================================================
+
+# ---------- 隐藏：关键源码（已编译进 ReelSage.exe）----------
+/cinescribe/
+/ReelSage.py
+/build_exe.py
+/check_gpu.py
+
+# ---------- 隐藏：打包/构建与启动脚本（终端用户不需要）----------
+/打包客户端.bat
+/打包安装包.bat
+/启动_ReelSage.bat
+/installer/
+
+# ---------- 密钥 / 授权（绝不上传）----------
+.reelsage_build_secret
+.reelsage_license
+.reelsage_login_prefs
+*.pem
+*.key
+**/_build_info.py.bak
+
+# ---------- 真实配置（含服务器地址，用 .example 模板代替）----------
+/config_local.json
+
+# ---------- 巨型资产：环境与模型（用户用脚本本地生成/下载）----------
+.venv/
+venv/
+env/
+models/
+qwen3-vl-4b/
+qwen3-vl-8b/
+*.safetensors
+*.bin
+*.gguf
+*.pt
+*.pth
+*.onnx
+
+# ---------- 打包中间产物 / 备份 ----------
+build/
+dist/
+dist_nuitka/
+build_protect/
+_prebuild_bak/
+source_backup_*.zip
+*.vmp
+ReelSage.vmp.exe
+
+# ---------- 缓存 / 日志 ----------
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.cinescribe_cache/
+*.log
+.reelsage/
+
+# ---------- IDE ----------
+.vscode/
+.idea/
+.kiro/
+*.swp
+
+# ============================================================
+#  说明：以上之外的文件（ReelSage.exe、python311.dll、*.pyd、*.dll、
+#  tcl/ tk/、cryptography/ 等运行库，以及 安装依赖.bat /
+#  download_models.bat / download_models.py / config_local.example.json /
+#  app.ico / README.md / LICENSE / requirements_local.txt）均会随仓库分发。
+# ============================================================
