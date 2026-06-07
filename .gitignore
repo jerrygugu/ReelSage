@@ -20,6 +20,9 @@
 .reelsage_build_secret
 .reelsage_license
 .reelsage_login_prefs
+.gh_token
+gh_token.txt
+/上传GitHub.bat
 *.pem
 *.key
 **/_build_info.py.bak
